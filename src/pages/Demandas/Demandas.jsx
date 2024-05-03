@@ -1,8 +1,10 @@
 import React from 'react';
-import { Space, Table, Tag } from 'antd';
-import { DeleteOutlined, EyeOutlined } from '@ant-design/icons';
+import { Space, Table, Tag, Button, DatePicker} from 'antd';
+import { DeleteOutlined, EyeOutlined, PlusOutlined, ExportOutlined } from '@ant-design/icons';
 
 import LayoutBase from "../../components/LayoutBase/LayoutBase";
+import { ContainerHeader, HeaderActions } from './Style';
+const { RangePicker } = DatePicker;
 
 const columns = [
     {
@@ -86,6 +88,15 @@ const Dashboard = () => {
 
     return (
       <LayoutBase title="Demandas">
+        <ContainerHeader>
+            <HeaderActions>
+                <Button type="primary" icon={<PlusOutlined />}>Nova</Button>
+                <Button icon={<ExportOutlined />}>Exportar</Button>
+            </HeaderActions>
+            <div>
+                <RangePicker />
+            </div>
+        </ContainerHeader>
         <Table columns={columns} dataSource={data} />
       </LayoutBase>
     );
