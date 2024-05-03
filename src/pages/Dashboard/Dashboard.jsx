@@ -5,7 +5,7 @@ import LayoutBase from "../../components/LayoutBase/LayoutBase";
 const Dashboard = () => {
 
     return (
-      <LayoutBase>
+      <LayoutBase title="Demandas">
         <div>dasds</div>
       </LayoutBase>
     );

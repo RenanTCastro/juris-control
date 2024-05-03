@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
 import {
+  HomeOutlined,
+  TeamOutlined,
+  AppstoreAddOutlined,
+  CalendarOutlined,
+  DollarOutlined,
+  RubyOutlined,
+  SettingOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
 } from '@ant-design/icons';
 
 import { Button, Layout, Menu, theme } from 'antd';
 
-import { ContentContainer } from './Style';
-const { Header, Sider, Content } = Layout;
+import { ContentContainer, Title } from './Style';
+const { Header, Sider } = Layout;
 
 const LayoutBase = (props) => {
     const [collapsed, setCollapsed] = useState(false);
@@ -29,18 +33,38 @@ const LayoutBase = (props) => {
             items={[
               {
                 key: '1',
-                icon: <UserOutlined />,
-                label: 'nav 1',
+                icon: <HomeOutlined />,
+                label: 'Dashboard',
               },
               {
                 key: '2',
-                icon: <VideoCameraOutlined />,
-                label: 'nav 2',
+                icon: <TeamOutlined />,
+                label: 'Clientes',
               },
               {
                 key: '3',
-                icon: <UploadOutlined />,
-                label: 'nav 3',
+                icon: <AppstoreAddOutlined />,
+                label: 'Demandas',
+              },
+              {
+                key: '4',
+                icon: <CalendarOutlined />,
+                label: 'Agenda',
+              },
+              {
+                key: '5',
+                icon: <DollarOutlined />,
+                label: 'Financeiro',
+              },
+              {
+                key: '6',
+                icon: <RubyOutlined />,
+                label: 'Licença',
+              },
+              {
+                key: '7',
+                icon: <SettingOutlined />,
+                label: 'Configurações',
               },
             ]}
           />
@@ -71,6 +95,7 @@ const LayoutBase = (props) => {
               borderRadius: borderRadiusLG,
             }}
           >
+            {props.title && <Title>{props.title}</Title>}
             {props.children}
           </ContentContainer>
         </Layout>
